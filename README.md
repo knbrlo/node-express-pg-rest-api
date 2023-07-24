@@ -51,11 +51,11 @@ node server.js
 ## Usage
 Use a tool like Postman or Insomnia to send HTTP requests to the API endpoints:
 
-GET all books: http://localhost:3000/books
-GET a single book by ID: http://localhost:3000/books/:id
-POST a new book: http://localhost:3000/books with a JSON body like { "title": "Book Title", "author": "Author Name" }
-PUT update a book: http://localhost:3000/books/:id with a JSON body like { "title": "New Book Title", "author": "New Author Name" }
-DELETE a book: http://localhost:3000/books/:id
+- GET all books: http://localhost:3000/books
+- GET a single book by ID: http://localhost:3000/books/:id
+- POST a new book: http://localhost:3000/books with a JSON body like { "title": "Book Title", "author": "Author Name" }
+- PUT update a book: http://localhost:3000/books/:id with a JSON body like { "title": "New Book Title", "author": "New Author Name" }
+- DELETE a book: http://localhost:3000/books/:id
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check issues page if you want to contribute.
