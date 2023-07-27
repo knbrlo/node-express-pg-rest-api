@@ -50,6 +50,17 @@ app.post('/books', (req, res) => {
   });
 
 // PUT update a book
+app.put('/books/:id', (req, res) => {
+    const title = req.body.title;
+    const author = req.body.author;
+    db.none('UPDATE books SET title = $1, author = $2 WHERE id = $3', [title, author, req.params.id])
+    .then(() => {
+        res.json({ message: 'Book updated' });
+    })
+    .catch(error => {
+        console.log(error);
+    })
+});
 
 // DELETE a book
 
