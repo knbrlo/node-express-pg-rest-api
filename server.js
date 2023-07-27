@@ -25,6 +25,15 @@ app.get('/books', (req, res) => {
 })
 
 // GET a single book by id
+app.get('/books/:id', (req, res) => {
+    db.one('SELECT * FROM books WHERE id =$1', req.params.id)
+    .then(data => {
+        res.json({ data });
+    })
+    .catch(error => {
+        console.log(error);
+    })
+})
 
 // POST a new book
 
