@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 const pgp = require('pg-promise')();
@@ -36,6 +37,17 @@ app.get('/books/:id', (req, res) => {
 })
 
 // POST a new book
+app.post('/books', (req, res) => {
+    const title = req.body.title;
+    const author = req.body.author;
+    db.none('INSERT INTO books(title, author) VALUES($1, $2)', [title, author])
+      .then(() => {
+        res.status(201).json({ message: 'Book added' });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
 
 // PUT update a book
 
