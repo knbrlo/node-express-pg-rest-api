@@ -63,6 +63,15 @@ app.put('/books/:id', (req, res) => {
 });
 
 // DELETE a book
+app.delete('/books/:id', (req, res) => {
+    db.none('DELETE FROM books WHERE id = $1', req.params.id)
+    .then(() => {
+        res.json({ message: 'Book deleted' });
+    })
+    .catch(error => {
+        console.log(error);
+    })
+})
 
 // Start the server
 app.listen(port, () => console.log(`Server running on port ${port}`));
